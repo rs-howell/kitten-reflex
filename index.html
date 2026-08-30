@@ -305,24 +305,18 @@
       <button class="btn btn-outline" id="home-btn">Back Home</button>
     </div>
 
-    <!--
-      AD BANNER — real AdSense markup, just waiting on your IDs.
-      Steps: 1) Apply at https://adsense.google.com/start/solutions/h5-games-ads/
-             2) Once approved, replace ca-pub-XXXXXXXXXXXXXXXX with your publisher ID
-             3) Replace data-ad-slot="0000000000" with your actual ad unit's slot ID
-             4) Uncomment the two <script> lines below
-             5) Set ADS_ENABLED to true near the top of the script section
-      Until step 5, this whole block stays hidden (not just blank) — see ADS_ENABLED.
-    -->
-    <div id="banner-ad-container" style="display:none;">
-      <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
-      <ins class="adsbygoogle"
-           style="display:block; width:320px; height:50px; margin:16px auto 0;"
-           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-           data-ad-slot="0000000000"
-           data-ad-format="auto"></ins>
-      <!-- <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
-    </div>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4487737891087396"
+     crossorigin="anonymous"></script>
+<!-- HorizontalFrontPage -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4487737891087396"
+     data-ad-slot="9333483932"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
   </div>
 
   <div class="footer-note">🔊 sounds are placeholder synth tones — swap in real meow/bark clips later</div>
@@ -399,13 +393,17 @@ const STARTING_LIVES = 5;
 const REWARD_LIVES = 10;
 
 // ============================================================
-// ADS_ENABLED — the single switch for whether real ads exist yet.
-// While false: no banner shows, and running out of lives only
-// offers the free daily reset (no "watch ad" button, since there's
-// no real ad to watch). Flip to true once your AdSense/H5 Games
-// Ads account is approved and the markup above has real IDs in it.
+// Two separate switches, since banner ads (base AdSense) and
+// rewarded ads (H5 Games Ads) get approved on different timelines.
+// BANNER_ADS_ENABLED: turn on once you have a real AdSense display
+//   ad unit's IDs pasted into the banner markup above.
+// REWARDED_ADS_ENABLED: turn on only once H5 Games Ads is approved
+//   and the "watch ad" button is wired to a real ad SDK — until
+//   then this must stay false, or the button shows up looking like
+//   it plays an ad while actually just granting free lives instantly.
 // ============================================================
-const ADS_ENABLED = false;
+const BANNER_ADS_ENABLED = true;
+const REWARDED_ADS_ENABLED = false;
 
 // ============================================================
 // LEADERBOARD_ENABLED — the leaderboard runs on Claude's
@@ -1019,8 +1017,10 @@ async function loadBestFromSavedStats(){
 
 // Ad-dependent UI, set once at startup — this never changes at
 // runtime, so no need to touch it every time the screen renders.
-if(ADS_ENABLED){
+if(BANNER_ADS_ENABLED){
   $('banner-ad-container').style.display = 'block';
+}
+if(REWARDED_ADS_ENABLED){
   $('watch-ad-btn').style.display = 'block';
   $('outoflives-message').textContent = "You've used all your lives on this level for today — come back tomorrow for a free refill, or:";
 } else {
