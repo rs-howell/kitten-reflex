@@ -305,26 +305,18 @@
       <button class="btn btn-outline" id="home-btn">Back Home</button>
     </div>
 
-    <!--
-      AD BANNER — real AdSense markup, just waiting on your IDs.
-      Steps: 1) Create a Display ad unit in your (already-approved) AdSense account
-             2) Replace ca-pub-XXXXXXXXXXXXXXXX with your publisher ID
-             3) Replace data-ad-slot="0000000000" with your actual ad unit's slot ID
-             4) Uncomment the two <script> lines below
-             5) Set BANNER_ADS_ENABLED to true near the top of the script section
-      Until step 5, this whole block stays hidden (not just blank) — see BANNER_ADS_ENABLED.
-      (The rewarded "watch ad" button is separate — see REWARDED_ADS_ENABLED — since
-      that needs the separate H5 Games Ads approval, on its own timeline from this banner.)
-    -->
-    <div id="banner-ad-container" style="display:none;">
-      <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
-      <ins class="adsbygoogle"
-           style="display:block; width:320px; height:50px; margin:16px auto 0;"
-           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-           data-ad-slot="0000000000"
-           data-ad-format="auto"></ins>
-      <!-- <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
-    </div>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4487737891087396"
+     crossorigin="anonymous"></script>
+<!-- HorizontalFrontPage -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4487737891087396"
+     data-ad-slot="9333483932"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
   </div>
 
   <div class="footer-note">🔊 sounds are placeholder synth tones — swap in real meow/bark clips later</div>
@@ -410,7 +402,7 @@ const REWARD_LIVES = 10;
 //   then this must stay false, or the button shows up looking like
 //   it plays an ad while actually just granting free lives instantly.
 // ============================================================
-const BANNER_ADS_ENABLED = false;
+const BANNER_ADS_ENABLED = true;
 const REWARDED_ADS_ENABLED = false;
 
 // ============================================================
